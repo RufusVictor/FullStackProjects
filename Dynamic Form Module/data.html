@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/af73d94dd5.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* Form styling */
+
+    input {
+        width: 150px;
+        border: 2px solid rgb(0, 128, 255);
+        border-radius: 10px;
+        color: black;
+        margin: 2px 0px 2px 0px;
+        background-color: white;
+    }
+
+    label {
+        background-color: white;
+        border: 2px solid rgb(0, 128, 255);
+        padding: 0px 3px 0px 3px;
+        border-radius: 10px;
+    }
+
+    .switch,
+    .submitButton,
+    #addButton {
+        margin-top: 10px;
+        color: black;
+    }
+
+    #addButton {
+        border-radius: 10px;
+    }
+
+    input:focus {
+        background-color: rgb(0, 128, 255);
+        color: whitesmoke;
+    }
+
+
+
+    @media (max-width:1452px) {
+        input {
+            width: 110px;
+        }
+    }
+
+    @media (max-width:1192px) {
+        input {
+            width: 110px;
+        }
+
+        #FormID {
+            text-align: center;
+        }
+    }
+
+    @media (max-width:574px) {
+        #FormID {
+            text-align: center;
+        }
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 36px;
+        border-radius: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(26px);
+    }
+
+
+    body {
+        font-family: 'Times New Roman';
+    }
+
+    .addButton {
+        height: 25px;
+        width: 100px;
+        margin-bottom: 20px;
+        border: 2px solid rgb(0, 128, 255);
+    }
+</style>
+
+<body>
+    <div id="FormID">
+
+    </div>
+    <script>
+        const FormID = document.getElementById("FormID");
+        var forms = localStorage.getItem("valuesOfForms").split(",")
+        var cellElementsValues = localStorage.getItem("values").split(",")
+        var cellInputtedElements = localStorage.getItem("inputsOfForms").split(",")
+        var x = forms.length;
+        all()
+        function all() {
+            for (let i = 0; i <= x - 1; i++) {
+                const newForm = document.createElement("div")
+                newForm.id = forms[i]
+                newForm.style.padding = "20px"
+                newForm.style.overflow = "hidden"
+
+                // form title
+                const formTitle = document.createElement("h1")
+                formTitle.innerHTML = "<label>Form " + (i + 1) + "</label>"
+                formTitle.className = "text-center"
+
+                // row 1
+                const row1 = document.createElement("div");
+                row1.className = "row"
+                const row1col1 = document.createElement("div")
+                row1col1.className = "col-lg-2"
+                row1col1.innerHTML = "<label for='Cell1'>Cell 1:</label> <input disabled  id='div" + (i + 1) + "-cell1' name='div" + (i + 1) + "-cell1'  value='''><br><br>"
+                row1.appendChild(row1col1)
+
+                // row 2
+                const row2 = document.createElement("div");
+                row2.className = "row"
+                const row2col1 = document.createElement("div")
+                row2col1.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col1.innerHTML = "<label for='Cell2'>Cell 2:</label> <input disabled  id='div" + (i + 1) + "-cell2' name='div" + (i + 1) + "-cell2'  value=''>"
+                const row2col2 = document.createElement("div")
+                row2col2.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col2.innerHTML = "<label for='Cell3'>Cell 3:</label> <input disabled  id='div" + (i + 1) + "-cell3' name='div" + (i + 1) + "-cell3'  value=''>"
+                const row2col3 = document.createElement("div")
+                row2col3.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col3.innerHTML = "<label for='Cell4'>Cell 4:</label> <input disabled  id='div" + (i + 1) + "-cell4' name='div" + (i + 1) + "-cell4'  value=''>"
+                const row2col4 = document.createElement("div")
+                row2col4.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col4.innerHTML = "<label for='Cell5'>Cell 5:</label> <input disabled  id='div" + (i + 1) + "-cell5' name='div" + (i + 1) + "-cell5'  value=''>"
+                const row2col5 = document.createElement("div")
+                row2col5.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col5.innerHTML = "<label for='Cell6'>Cell 6:</label> <input disabled  id='div" + (i + 1) + "-cell6' name='div" + (i + 1) + "-cell6'  value=''>"
+                const row2col6 = document.createElement("div")
+                row2col6.className = "col-lg-2 col-md-4 col-sm-6"
+                row2col6.innerHTML = "<label for='Cell7'>Cell 7:</label> <input disabled  id='div" + (i + 1) + "-cell7' name='div" + (i + 1) + "-cell7'  value=''><br><br>"
+                row2.appendChild(row2col1)
+                row2.appendChild(row2col2)
+                row2.appendChild(row2col3)
+                row2.appendChild(row2col4)
+                row2.appendChild(row2col5)
+                row2.appendChild(row2col6)
+
+                // row 3
+                const row3 = document.createElement("div");
+                row3.className = "row"
+                const row3col1 = document.createElement("div")
+                row3col1.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col1.innerHTML = "<label for='Cell8'>Cell 8:</label> <input disabled  id='div" + (i + 1) + "-cell8' name='div" + (i + 1) + "-cell8'  value=''>"
+                const row3col2 = document.createElement("div")
+                row3col2.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col2.innerHTML = "<label for='Cell9'>Cell 9:</label> <input disabled  id='div" + (i + 1) + "-cell9' name='div" + (i + 1) + "-cell9'  value=''>"
+                const row3col3 = document.createElement("div")
+                row3col3.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col3.innerHTML = "<label for='Cell10'>Cell 10:</label> <input disabled  id='div" + (i + 1) + "-cell10' name='div" + (i + 1) + "-cell10'  value=''>"
+                const row3col4 = document.createElement("div")
+                row3col4.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col4.innerHTML = "<label for='Cell11'>Cell 11:</label> <input disabled  id='div" + (i + 1) + "-cell11' name='div" + (i + 1) + "-cell11'  value=''>"
+                const row3col5 = document.createElement("div")
+                row3col5.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col5.innerHTML = "<label for='Cell12'>Cell 12:</label> <input disabled  id='div" + (i + 1) + "-cell12' name='div" + (i + 1) + "-cell12'  value=''>"
+                const row3col6 = document.createElement("div")
+                row3col6.className = "col-lg-2 col-md-4 col-sm-6"
+                row3col6.innerHTML = "<label for='Cell13'>Cell 13:</label> <input disabled  id='div" + (i + 1) + "-cell13' name='div" + (i + 1) + "-cell13'  value=''><br><br><br>"
+                row3.appendChild(row3col1)
+                row3.appendChild(row3col2)
+                row3.appendChild(row3col3)
+                row3.appendChild(row3col4)
+                row3.appendChild(row3col5)
+                row3.appendChild(row3col6)
+
+                // row 4
+                const row4 = document.createElement("div");
+                row4.className = "text-center"
+                row4.innerHTML = "<label for='Cell14'>Cell 14</label><br> <input disabled  id='div" + (i + 1) + "-cell14' name='div" + (i + 1) + "-cell14' style='text-align:center;margin-top:10px'><br><br>"
+
+                var color = ["pink", "crimson", "grey", "green", "blue", "lightblue", "yellow", "hotpink", "plum", "khaki", "bisque", "skyblue", "cyan", "aquamarine"];
+                changeBackground(color);
+                function changeBackground(color) {
+                    var l = color.length;
+                    var rand = Math.floor(Math.random() * l);
+                    var na = color[rand];
+                    var rand1 = Math.floor(Math.random() * l);
+                    var na1 = color[rand1];
+                    newForm.style.background = "url(blueAbstract.png) repeat bottom, linear-gradient(to right," + na + "," + na1 + ")";
+                    newForm.style.backgroundSize = "contain";
+                }
+
+                newForm.appendChild(formTitle)
+                newForm.appendChild(row1)
+                newForm.appendChild(row2)
+                newForm.appendChild(row3)
+                newForm.appendChild(row4)
+
+                FormID.appendChild(newForm)
+            }
+            var inputs = document.getElementById("FormID").getElementsByTagName("input");
+            document.getElementById("FormID").querySelectorAll("input").forEach((input, index) => {
+                input.value = "No data found"
+            })
+
+            for (var z = 0; z < inputs.length; z++) {
+                var input = inputs[z];
+
+                var index = cellInputtedElements.indexOf(input.name);
+                if (index !== -1) {
+                    input.value = cellElementsValues[index];
+                    if (cellElementsValues[index] == "off")
+                        input.value = "No data found"
+                }
+            }
+            var counter = 0
+            var ff = 0
+            var mainCounter = 0
+            document.getElementById("FormID").querySelectorAll("input").forEach((input, index) => {
+
+                mainCounter = index + 1
+
+                if (input.value == "No data found") {
+                    counter++;
+                }
+
+                if (counter == 14) {
+                    var li = document.getElementById("FormID");
+                    li.removeChild(document.getElementById(forms[ff]));
+                }
+
+                if (mainCounter % 14 == 0) {
+                    counter = 0
+                    ff++
+                }
+
+            })
+
+        }
+    </script>
+</body>
+
+</html>
