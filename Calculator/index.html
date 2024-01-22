@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    #bmiButton {
+        margin: 5px 0px 5px 130px;
+    }
+
+    @media (max-width:700px) {
+        #bmiButton {
+            margin: 5px 0px 5px 10px;
+        }
+    }
+</style>
+
+<body>
+    <h1>Calculator</h1>
+    <form method="post">
+        <input type="number" name="n1" placeholder="First Number" required>
+        <input type="number" name="n2" placeholder="Second Number" required>
+        <button type="submit" name="submit">Calculate</button><br><br>
+        <button type="button" onclick="bmi()" id="bmiButton">BMI Calculator</button>
+    </form>
+</body>
+<script>
+    function bmi() {
+        window.location.href = '/bmiCalculator';
+    }
+</script>
+
+</html>
