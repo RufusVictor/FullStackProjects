@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Oswald:wght@200;500&family=Ubuntu:wght@300&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/af73d94dd5.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="favicon_io/favicon.ico">
+  <title>Pets</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WR2KFQY4H8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WR2KFQY4H8');
+  </script>
+</head>
+
+<style>
+  body {
+    background-color: rgb(224, 237, 247);
+  }
+
+  /* Title */
+  #title {
+    background-color: rgb(137, 45, 132);
+    background-image: url(cambg_3.jpg);
+    background-position: bottom;
+    background-attachment: fixed;
+    color: white;
+  }
+
+  h1 {
+    font-family: Agbalumo;
+    font-size: 3.5rem;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-family: Ubuntu;
+    font-size: 2.5rem;
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-family: Agbalumo;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .titlesection {
+    padding: 10px 15px;
+    padding-bottom: 40px;
+  }
+
+  /* Navigation Bar */
+  .navbar-brand {
+    font-size: 2.5rem;
+    font-family: Agbalumo;
+    font-weight: bold;
+  }
+
+  .nav-item {
+    padding: 0 10px;
+    font-family: Ubuntu;
+    font-size: 20px;
+  }
+
+  .dropdown-item {
+    font-size: 20px;
+  }
+
+  .anybuttonname {
+    margin: 5% 3% 5% 0;
+    font-family: Ubuntu;
+  }
+
+  .Title-image-ownclass {
+    margin-top: 25%;
+    width: 105%;
+    height: 110%;
+  }
+
+  .navbar {
+    padding-bottom: 10px;
+  }
+
+  input[type="checkbox"] {
+    filter: invert(0%) hue-rotate(55deg) brightness(1);
+  }
+
+  /* Features */
+  #features {
+    padding: 0% 7%;
+    background-image: url(butterfly.png);
+    background-size: contain;
+    background-position: center;
+  }
+
+  .feature-box {
+    padding: 0% 5%;
+  }
+
+  .icon {
+    color: #446696;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+  }
+
+  .icon:hover {
+    color: #1b293c;
+    transition: 0.3s ease-out;
+  }
+
+  .des {
+    color: rgb(44, 57, 71);
+    margin-bottom: 1rem;
+  }
+
+  /* Testimonials */
+  #testimonials {
+    color: white;
+    background-color: #446696;
+    transition: 0.3s;
+  }
+
+  #testimonials:hover {
+    background-color: #1b293c;
+    transition: 0.3s ease-out;
+  }
+
+  .testimonial-image {
+    width: 10%;
+    height: 10%;
+    border-radius: 100%;
+    margin: 20px;
+  }
+
+  .carousel-item {
+    padding: 0% 10%;
+  }
+
+  #press {
+    text-align: center;
+    padding-bottom: 3%;
+  }
+
+  .press-image {
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
+
+  @media (max-width:450px) {
+    .press-image {
+      margin: 0px 0px 50px
+    }
+  }
+
+  /* Pricing Section */
+
+  #pricing {
+    text-align: center;
+    background-image: url(flowers.png);
+    background-color: rgb(224, 237, 247);
+    background-size: cover;
+    background-position: bottom;
+    padding: 0px 100px;
+  }
+
+  .card {
+    border-radius: 10%;
+    border: none;
+    box-shadow: 10px 15px 10px rgb(174, 114, 189);
+  }
+
+  .card-header {
+    color: whitesmoke;
+    background-color: rgb(83, 20, 91);
+  }
+
+  @media (max-width:400px) {
+    #pricing {
+      padding: 0px 10px;
+    }
+
+    .card {
+      box-shadow: 5px 7px 5px rgb(174, 114, 189);
+    }
+  }
+
+  .pricing-column {
+    padding: 3% 2%;
+  }
+
+  /* Download Section */
+  #download {
+    color: white;
+    background-image: url(goldenpattern.png);
+    background-size: contain;
+    background-color: rgb(83, 20, 91);
+    position: relative;
+    z-index: 0;
+    transition: 0.5s;
+  }
+
+  #download:hover {
+    background-color: #0D0E12;
+    transition: 0.5s ease-out;
+  }
+
+  @media (min-width:992px) {
+    .download-img {
+      transform: rotate(35deg);
+      position: absolute;
+      right: 140px;
+      z-index: -1;
+      top: 30px;
+    }
+  }
+
+  @media (max-width:991px) {
+    .download-img {
+      position: relative;
+      transform: rotate(0deg);
+    }
+
+    .card {
+      box-shadow: 5px 7px 5px rgb(174, 114, 189);
+    }
+  }
+
+  /* Footer */
+  #contact {
+    background: #1b293c;
+    color: white;
+
+    .links {
+      ul {
+        list-style-type: none;
+      }
+
+      li a {
+        color: white;
+        transition: color .2s;
+
+        &:hover {
+          text-decoration: none;
+          color: #4180CB;
+        }
+      }
+    }
+
+    .about-company {
+      i {
+        font-size: 25px;
+      }
+
+      a {
+        color: white;
+        transition: color .2s;
+
+        &:hover {
+          color: #4180CB
+        }
+      }
+    }
+
+    .location {
+      i {
+        font-size: 18px;
+      }
+    }
+
+    .copyright p {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+  }
+</style>
+
+<body>
+  <section id="title">
+    <div class="container-fluid titlesection py-5">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-5" style="background-color: #1b293c;">
+        <a data-aos="zoom-in" data-aos-duration="1000" class="navbar-brand" href="CatGallery.html" target="_blank"
+          rel="nofollow noopener"><img src="pussycats_logo.png" height="60" width="90" alt=""
+            style="padding-right: 0.5rem;">Pets</a>
+        <button data-aos="zoom-in" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">
+          </span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+          <ul data-aos="zoom-in" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">News</a>
+              <div class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#testimonials">Testimonials</a>
+                <a class="dropdown-item" href="#pricing">Pricing</a>
+                <a class="dropdown-item" href="#download">Download</a>
+                <a class="dropdown-item" href="#newsletter">Newsletter</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Title -->
+      <br><br><br><br>
+      <div class="container py-4">
+        <div class="row">
+          <div data-aos="fade-down" data-aos-duration="1000" class="titletext col-lg-7 text-center">
+            <h1>Meet new and interesting cats and dogs nearby!</h1>
+            <button type="button" class="btn btn-light btn-lg anybuttonname" style="width: 150px;"><i
+                class="fa-solid fa-ghost fa-beat p-2"></i>Login</button>
+            <button type="button" class="btn btn-light btn-lg anybuttonname" style="width: 150px;"><i
+                class="fa-solid fa-dragon fa-bounce p-2"></i>Sign-up</button>
+          </div>
+          <div class="col-lg-5">
+            <img class="Title-image-ownclass" src="Cute-Pet-PNG-Images.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features -->
+  <section id="features" style="overflow: hidden;">
+    <div class="container text-center">
+      <h1>Features</h1>
+    </div>
+    <div class="container pt-5">
+      <div class="row">
+        <div data-aos="fade-up-right" data-aos-duration="1000" class="feature-box col-lg-4 text-center">
+          <i class="icon fa-solid fa-heart fa-beat fa-4x"></i>
+          <h3>Easy to use</h3>
+          <p class="des">So easy to use, even your cats and dogs could do it.</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-duration="1000" class="feature-box col-lg-4 text-center">
+          <i class="icon fa-solid fa-bone fa-shake fa-4x"></i>
+          <h3>Elite Clientele</h3>
+          <p class="des">We have all the dogs & cats, the greatest dogs & cats.</p>
+        </div>
+        <div data-aos="fade-up-left" data-aos-duration="1000" class="feature-box col-lg-4 text-center">
+          <i class="icon fa-solid fa-shield fa-flip fa-4x"></i>
+          <h3>Guaranteed to work</h3>
+          <p class="des">Find the love of your cat or dog's life or your money back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials -->
+
+  <section id="testimonials">
+
+    <div class="container-fluid text-center pb-5">
+      <h1 class="pb-5">Testimonials</h1>
+      <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel" data-bs-interval="4000"
+        data-bs-pause="hover">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+
+            <h3>I no longer have to sniff other dogs for love. I've found the hottest Corgi from here. Woof!</h3>
+            <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
+            <em>Pebbles, New York</em>
+          </div>
+          <div class="carousel-item pb-3">
+
+            <h3 class="testimonial-text">My cat used to be so lonely, but with your help, she has found the love of her
+              life. I think.</h3>
+            <img class="testimonial-image" src="cat.jpg" alt="lady-profile">
+            <em>Beverly, Illinois</em>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Press -->
+
+    <section id="press" style="overflow: hidden;">
+      <img class="press-image" src="images/techcrunch.png">
+      <img class="press-image" src="images/tnw.png">
+      <img class="press-image" src="images/mashable.png">
+      <img class="press-image" src="Google.png">
+
+    </section>
+  </section>
+
+
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container-fluid pb-5" style="overflow: hidden;">
+      <h1 class="pb-3">Pricing</h1>
+      <h2>A Plan for Every Dog's Needs</h2>
+      <p>Simple and affordable price plans for your and your dog.</p>
+      <div class="row">
+        <div data-aos="zoom-in-right" data-aos-duration="1000" class="pricing-column col-lg-4 col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Chihuahua</h3>
+            </div>
+            <div class="card-body">
+              <h2>Free</h2>
+              <p>5 Matches Per Day</p>
+              <p>10 Messages Per Day</p>
+              <p>Unlimited App Usage</p>
+              <button class="btn btn-lg btn-dark w-100" type="button" style="background-color: rgb(83, 20, 91);">Buy
+                Plan</button>
+            </div>
+          </div>
+        </div>
+        <div data-aos="zoom-in-up" data-aos-duration="1000" class="pricing-column col-lg-4 col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Labrador</h3>
+            </div>
+            <div class="card-body">
+              <h2>$49 / mo</h2>
+              <p>Unlimited Matches</p>
+              <p>Unlimited Messages</p>
+              <p>Unlimited App Usage</p>
+              <button class="btn btn-lg btn-dark w-100" type="button" style="background-color: rgb(83, 20, 91);">Buy
+                Plan</button>
+            </div>
+          </div>
+        </div>
+        <div data-aos="zoom-in-left" data-aos-duration="1000" class="pricing-column col-lg-4 col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3>Mastiff</h3>
+            </div>
+            <div class="card-body">
+              <h2>$99 / mo</h2>
+              <p>Pirority Listing</p>
+              <p>Unlimited Matches</p>
+              <p>Unlimited Messages</p>
+              <p>Unlimited App Usage</p>
+              <button class="btn btn-lg btn-dark w-100" type="button" style="background-color: rgb(83, 20, 91);">Buy
+                Plan</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Download -->
+
+  <section class="pb-4 text-center" id="download">
+    <div class="container-fluid px-5 pt-3">
+      <div data-aos="zoom-in" data-aos-delay="100" class="row">
+        <h1 class="pb-5" style="line-height:1 ;">Downloads</h1>
+        <div class="col-lg-7">
+          <h1 class="pt-4" style="font-size: 2rem; padding: 0px px;">Find the True Love of Your Pet's Life Today!</h1>
+          <button class="btn btn-light btn-lg anybuttonname" type="button"><i
+              class="fa-brands fa-google-play fa-lg p-2"></i>Download</button>
+          <button class="btn btn-light btn-lg anybuttonname" type="button"><i
+              class="fa-brands fa-apple fa-xl p-2"></i>Download</button>
+        </div>
+        <div class="download-img col-lg-5"><img src="images/iphone6.png" height="500px">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter -->
+  <div class="container-fluid pb-5" style="overflow: hidden; background-image: url(left\ cat.jpg);background-repeat: no-repeat;background-color: #070808; color:rgb(255, 255, 255); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;position: relative;
+    z-index: 0;">
+    <section id="newsletter">
+      <h1 class="text-center pb-3">Newsletter</h1>
+      <div class="row mx-5">
+        <div data-aos="fade-right" data-aos-duration="1000" class="col-lg-6 pb-5">
+          <h3 class="text-center"><b>For more Information</b></h3>
+          <form>
+            <div class="mb-3">
+              <label class="form-label" for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="inputPassword">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Name">
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkRemember">
+                <label class="form-check-label" for="checkRemember">Remember me</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-lg"
+              style="background-color: rgb(83, 20, 91); color: antiquewhite;">Submit</button>
+          </form>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000" class="col-lg-6">
+          <h3 class="text-center pb-3 mb-lg-4 mb-sm-0"><b>For even more Information</b></h3>
+          <form>
+            <div class="row mb-3">
+              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Nickname</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" placeholder="Nickname">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-10 offset-sm-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="checkRemember">
+                  <label class="form-check-label" for="checkRemember">Remember me</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-lg"
+                  style="background-color: rgb(83, 20, 91); color: antiquewhite;">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  </section>
+  <!-- Footer -->
+
+  <div class="pt-5 pb-5" id="contact">
+    <div data-aos="zoom-in" data-aos-duration="1000" class="container">
+      <div class="row">
+        <div class="col-lg-5 col-xs-12 about-company">
+          <h2 class="pb-4">Contact</h2>
+          <p class="pr-5 text-white-50">Get in touch with us by using our social media platforms! </p>
+          <p><a href="https://facebook.com" target="_blank"><i class="fa fa-facebook-square mr-1"></i></a><a
+              href="https://linkedin.com" target="_blank"><i class="fa fa-linkedin-square"></i></a></p>
+        </div>
+        <div class="col-lg-3 col-xs-12 links">
+          <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+          <ul class="m-0 pl-1">
+            <li>- <a href="#">Fake Meow</a></li>
+            <li>- <a href="#">Meo Mew</a></li>
+            <li>- <a href="#">Tokyo Cats</a></li>
+            <li>- <a href="#">French Kitties</a></li>
+            <li>- <a href="#">Cats in Boots</a></li>
+            <li>- <a href="#">Cat Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-xs-12 location">
+          <h4 class="mt-lg-0 mt-3">Location</h4>
+          <p>157, RC Church Street, Alangulam, Tenkasi District, Tamilnadu</p>
+          <p class="mb-0"><i class="fa fa-phone mr-3 p-2"></i>+91 9500638417</p>
+          <p><i class="fa fa-envelope-o mr-3 p-2"></i>arulrufus@gmail.com</p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col copyright">
+          <p class=""><small class="text-white-50">© 2023. All Rights Reserved.</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
