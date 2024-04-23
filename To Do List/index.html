@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<style>
+    body {
+        background-color: #f9f9f9;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        width: 70%;
+        margin-right: 10px;
+    }
+
+    button[type="submit"] {
+        background-color: #2980b9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #3498db;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+
+    li span {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    li button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    li button:hover {
+        background-color: #c0392b;
+    }
+
+    li.completed {
+        background-color: green;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>To Do List</h1>
+        <form>
+            <input type="text" id="todo-input" placeholder="Add a new task...">
+            <button type="submit" id="add-button">Add</button>
+        </form>
+        <ul id="todo-list">
+        </ul>
+    </div>
+
+</body>
+<script>
+    const form = document.querySelector('form');
+    const todoInput = document.querySelector('#todo-input');
+    const addButton = document.querySelector('#add-button');
+    const todoList = document.querySelector('#todo-list');
+
+    let todos = [];
+
+    function addTodo() {
+        const todoText = todoInput.value.trim();
+
+        if (todoText.length > 0) {
+            const todo = {
+                id: Date.now(),
+                text: todoText,
+                completed: false
+            };
+
+            todos.push(todo);
+
+            todoInput.value = '';
+
+            // Save todos to localStorage
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            renderTodos();
+        }
+    }
+
+    function toggleCompleted(id) {
+        todos = todos.map(todo => {
+            if (todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+
+            return todo;
+        });
+
+        // Save todos to localStorage
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        renderTodos();
+    }
+
+    function deleteTodo(id) {
+        todos = todos.filter(todo => todo.id !== id);
+
+        // Save todos to localStorage
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        renderTodos();
+    }
+
+    function renderTodos() {
+        todoList.innerHTML = '';
+
+        todos.forEach(todo => {
+            const todoItem = document.createElement('li');
+            const todoText = document.createElement('span');
+            const completeButton = document.createElement('button');
+            const deleteButton = document.createElement('button');
+
+            todoText.textContent = todo.text;
+            completeButton.textContent = 'Complete';
+            deleteButton.textContent = 'Delete';
+
+            if (todo.completed) {
+                todoItem.classList.add('completed');
+            }
+
+            todoItem.appendChild(todoText);
+            todoItem.appendChild(completeButton);
+            todoItem.appendChild(document.createTextNode('\u00A0'));
+            todoItem.appendChild(deleteButton);
+
+            completeButton.addEventListener('click', () => toggleCompleted(todo.id));
+            deleteButton.addEventListener('click', () => deleteTodo(todo.id));
+
+            todoList.appendChild(todoItem);
+        });
+    }
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        addTodo();
+    });
+
+    // Load todos from localStorage when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        const storedTodos = localStorage.getItem('todos');
+        if (storedTodos) {
+            todos = JSON.parse(storedTodos);
+            renderTodos();
+        }
+    });
+</script>
+
+
+</html>
