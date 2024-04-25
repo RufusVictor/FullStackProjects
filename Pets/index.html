@@ -148,9 +148,27 @@
 
   .testimonial-image {
     width: 10%;
-    height: 10%;
+    height: 100px;
     border-radius: 100%;
     margin: 20px;
+  }
+
+  @media (max-width:880px) {
+    .testimonial-image {
+      height: 60px;
+    }
+  }
+
+  @media (max-width:680px) {
+    .testimonial-image {
+      height: 40px;
+    }
+  }
+
+  @media (max-width:420px) {
+    .testimonial-image {
+      height: 30px;
+    }
   }
 
   .carousel-item {
@@ -351,7 +369,7 @@
 
 
   <!-- Features -->
-  <section id="features" style="overflow: hidden;">
+  <section id="features" style="overflow: hidden; padding: 80px 0px;">
     <div class="container text-center">
       <h1>Features</h1>
     </div>
@@ -379,7 +397,7 @@
 
   <!-- Testimonials -->
 
-  <section id="testimonials">
+  <section id="testimonials" style=" padding: 80px 0px 0px 0px;">
 
     <div class="container-fluid text-center pb-5">
       <h1 class="pb-5">Testimonials</h1>
@@ -392,7 +410,7 @@
             <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
             <em>Pebbles, New York</em>
           </div>
-          <div class="carousel-item pb-3">
+          <div class="carousel-item">
 
             <h3 class="testimonial-text">My cat used to be so lonely, but with your help, she has found the love of her
               life. I think.</h3>
@@ -429,7 +447,7 @@
 
 
   <!-- Pricing -->
-  <section id="pricing">
+  <section id="pricing" style=" padding: 80px 0px 0px 0px;">
     <div class="container-fluid pb-5" style="overflow: hidden;">
       <h1 class="pb-3">Pricing</h1>
       <h2>A Plan for Every Dog's Needs</h2>
@@ -489,7 +507,7 @@
 
   <!-- Download -->
 
-  <section class="pb-4 text-center" id="download">
+  <section class="pb-4 text-center" id="download" style=" padding: 80px 0px 0px 0px;">
     <div class="container-fluid px-5 pt-3">
       <div data-aos="zoom-in" data-aos-delay="100" class="row">
         <h1 class="pb-5" style="line-height:1 ;">Downloads</h1>
@@ -508,7 +526,7 @@
   <!-- Newsletter -->
   <div class="container-fluid pb-5" style="overflow: hidden; background-image: url(left\ cat.jpg);background-repeat: no-repeat;background-color: #070808; color:rgb(255, 255, 255); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;position: relative;
     z-index: 0;">
-    <section id="newsletter">
+    <section id="newsletter" style=" padding: 80px 0px 0px 0px;">
       <h1 class="text-center pb-3">Newsletter</h1>
       <div class="row mx-5">
         <div data-aos="fade-right" data-aos-duration="1000" class="col-lg-6 pb-5">
@@ -568,7 +586,7 @@
   </section>
   <!-- Footer -->
 
-  <div class="pt-5 pb-5" id="contact">
+  <div id="contact" style=" padding: 80px 0px 0px 0px;">
     <div data-aos="zoom-in" data-aos-duration="1000" class="container">
       <div class="row">
         <div class="col-lg-5 col-xs-12 about-company">
