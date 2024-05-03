@@ -1,0 +1,24 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Wikipedia</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'wikipedia/css/styles.css' %}">
+</head>
+<body>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" id="title" name="title" placeholder="Enter Wikipedia Page Title">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
