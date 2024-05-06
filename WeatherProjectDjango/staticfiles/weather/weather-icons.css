@@ -1,0 +1,81 @@
+/* Define CSS classes for OpenWeatherMap weather icons */
+.weather-icon {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px;
+  display: inline-block;
+  background-size: contain;
+}
+
+.weather-icon01d {
+  background-image: url('https://openweathermap.org/img/wn/01d.png'); /* Clear sky day */
+}
+
+.weather-icon01n {
+  background-image: url('https://openweathermap.org/img/wn/01n.png'); /* Clear sky night */
+}
+
+.weather-icon02d {
+  background-image: url('https://openweathermap.org/img/wn/02d.png'); /* Few clouds day */
+}
+
+.weather-icon02n {
+  background-image: url('https://openweathermap.org/img/wn/02n.png'); /* Few clouds night */
+}
+
+.weather-icon03d {
+  background-image: url('https://openweathermap.org/img/wn/03d.png'); /* Scattered clouds day */
+}
+
+.weather-icon03n {
+  background-image: url('https://openweathermap.org/img/wn/03n.png'); /* Scattered clouds night */
+}
+
+.weather-icon04d {
+  background-image: url('https://openweathermap.org/img/wn/04d.png'); /* Broken clouds day */
+}
+
+.weather-icon04n {
+  background-image: url('https://openweathermap.org/img/wn/04n.png'); /* Broken clouds night */
+}
+
+.weather-icon09d {
+  background-image: url('https://openweathermap.org/img/wn/09d.png'); /* Shower rain day */
+}
+
+.weather-icon09n {
+  background-image: url('https://openweathermap.org/img/wn/09n.png'); /* Shower rain night */
+}
+
+.weather-icon10d {
+  background-image: url('https://openweathermap.org/img/wn/10d.png'); /* Rain day */
+}
+
+.weather-icon10n {
+  background-image: url('https://openweathermap.org/img/wn/10n.png'); /* Rain night */
+}
+
+.weather-icon11d {
+  background-image: url('https://openweathermap.org/img/wn/11d.png'); /* Thunderstorm day */
+}
+
+.weather-icon11n {
+  background-image: url('https://openweathermap.org/img/wn/11n.png'); /* Thunderstorm night */
+}
+
+.weather-icon13d {
+  background-image: url('https://openweathermap.org/img/wn/13d.png'); /* Snow day */
+}
+
+.weather-icon13n {
+  background-image: url('https://openweathermap.org/img/wn/13n.png'); /* Snow night */
+}
+
+.weather-icon50d {
+  background-image: url('https://openweathermap.org/img/wn/50d.png'); /* Mist day */
+}
+
+.weather-icon50n {
+  background-image: url('https://openweathermap.org/img/wn/50n.png'); /* Mist night */
+}
+
+/* Define classes for other weather conditions as needed */
