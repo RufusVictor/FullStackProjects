@@ -1,0 +1,116 @@
+body {
+  background-color: plum;
+}
+
+a {
+  text-decoration: none !important;
+  /* color: inherit !important; */
+}
+
+/* Scroll bar */
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px pink;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: purple;
+  outline: 1px solid purple;
+}
+
+/* Scroll bar for dropdown */
+.dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px pink;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: purple;
+  outline: 1px solid black;
+}
+
+.footer {
+  background-color: purple;
+  /* Blue background color */
+  color: white;
+  /* White text color */
+  padding-top: 15px;
+  padding-bottom: 1px;
+  text-align: center;
+  /* Center align text */
+  left: 0;
+  /* Align to the left */
+  bottom: 0;
+  /* Align to the bottom */
+  width: 100%;
+  /* Full width */
+}
+
+.checkout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(50px);
+  z-index: 9999;
+}
+
+.checkout-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-modal .close-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.processing-content {
+  text-align: center;
+}
+
+.processing-gif {
+  width: 150px;
+  height: 150px;
+}
+
+.thank-you-text {
+  margin-top: 10px;
+  font-size: 48px;
+  color: white;
+  font-family: 'Great Vibes', cursive;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
