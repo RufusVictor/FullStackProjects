@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamscape Shots</title>
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /****************************wrap**************************/
+        /* Import Poppins font */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+        .wrap {
+            pointer-events: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .boxes div {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            border: 2px solid navy;
+        }
+
+        .boxes div:nth-child(1) {
+            top: 12%;
+            left: 42%;
+            animation: animate 10s linear infinite;
+        }
+
+        .boxes div:nth-child(2) {
+            top: 70%;
+            left: 50%;
+            animation: animate 7s linear infinite;
+        }
+
+        .boxes div:nth-child(3) {
+            top: 17%;
+            left: 6%;
+            animation: animate 9s linear infinite;
+        }
+
+        .boxes div:nth-child(4) {
+            top: 20%;
+            left: 60%;
+            animation: animate 10s linear infinite;
+        }
+
+        .boxes div:nth-child(5) {
+            top: 67%;
+            left: 10%;
+            animation: animate 6s linear infinite;
+        }
+
+        .boxes div:nth-child(6) {
+            top: 80%;
+            left: 70%;
+            animation: animate 12s linear infinite;
+        }
+
+        .boxes div:nth-child(7) {
+            top: 60%;
+            left: 80%;
+            animation: animate 15s linear infinite;
+        }
+
+        .boxes div:nth-child(8) {
+            top: 32%;
+            left: 25%;
+            animation: animate 16s linear infinite;
+        }
+
+        .boxes div:nth-child(9) {
+            top: 90%;
+            left: 25%;
+            animation: animate 9s linear infinite;
+        }
+
+        .boxes div:nth-child(10) {
+            top: 20%;
+            left: 80%;
+            animation: animate 5s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: scale(0) translateY(0) rotate(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.3) translateY(-90px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body,
+        html {
+            font-family: "Poppins", sans-serif;
+            color: white;
+            text-shadow: black 1px 1px;
+            overflow: hidden;
+        }
+
+        .nav-link,
+        .navbar-brand {
+            color: white !important;
+            transition: 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+        .nav-link:hover,
+        .navbar-brand:hover {
+            text-shadow: 0px 0px 10px white;
+        }
+
+        /* Carousel */
+        .carousel-item img {
+            height: 100vh;
+        }
+
+        @media (max-width:440px) {
+            .navbar-brand {
+                font-size: 18px !important;
+            }
+
+            .logo {
+                width: 50px;
+            }
+        }
+
+        @media (max-width:350px) {
+            .navbar-brand {
+                font-size: 16px !important;
+            }
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        .carousel-caption h1 {
+            font-size: 7rem;
+            font-family: Great Vibes;
+            text-shadow: 0px 0px 20px navy;
+            font-weight: 600;
+        }
+
+        @media (max-width:1030px) {
+            .carousel-caption h1 {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width:730px) {
+            .carousel-caption h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width:580px) {
+            .carousel-caption h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width:430px) {
+            .carousel-caption h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .carousel-caption .explore-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.25rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            font-weight: 600;
+        }
+
+        .carousel-caption .explore-btn:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 30px 1px navy;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="boxes">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: navy;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="" style="font-size: 26px;"><img class="logo me-3" src="images/logo.png"
+                    width="70px" alt="">Dreamscape Shots</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto text-center gap-md-2">
+                    <a class="nav-link" href="">Home</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="#" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/Flowers.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h1>Flowers</h1>
+                    <a href="flowers.html"><button class="explore-btn">Explore</button></a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/Wildlife.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h1>Wildlife</h1>
+                    <a href="wildlife.html"><button class="explore-btn">Explore</button></a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/Scenery.jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h1>Scenery</h1>
+                    <a href="scenery.html"><button class="explore-btn">Explore</button></a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        // Function to get a specific cookie value
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        // Function to check the "Logged" cookie and redirect if not present
+        function checkLoginStatus() {
+            const loggedCookie = getCookie('Logged');
+            if (!loggedCookie) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Check login status on page load and when navigating to the page using the back button
+        window.onload = checkLoginStatus;
+        window.onpageshow = function (event) {
+            if (event.persisted) {
+                checkLoginStatus();
+            }
+        };
+        // Function to delete a specific cookie
+        function deleteCookie(name) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+        }
+        // Handle logout link click
+        document.getElementById('logout-link').onclick = function () {
+            deleteCookie('Logged');
+            window.location.href = 'index.html'; // Redirect after logout
+        };
+    </script>
+</body>
+
+</html>
