@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.input-group {
+    margin: 10px 0;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    background: #27ae60;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #219150;
+}
+
+.expense-list {
+    display: none;
+    margin-top: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.expense-item span {
+    color: white;
+}
+
+.edit,
+.delete {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit {
+    background: #f39c12;
+    color: white;
+    margin-right: 5px;
+}
+
+.delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.edit:hover {
+    background: #e67e22;
+}
+
+.delete:hover {
+    background: #c0392b;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}

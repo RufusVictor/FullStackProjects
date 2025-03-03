@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: green;
+    background-image: linear-gradient(to bottom, #ff9933 0%, white 40%, green 75%);
+    background-repeat: no-repeat;
+}
+
+.map {
+    transform: scale(0.8);
+    transform: scaleY(0.8);
+    transform-origin: top left;
+}
+
+.hover-info {
+    border-top-left-radius: 30px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: blanchedalmond;
+    border: 10px double rgb(92, 46, 46);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 10;
+    width: 45%;
+    text-align: center;
+    height: 100%;
+    text-shadow: 0px 0px 3px gray;
+}
+
+.hover-info img {
+    width: 100%;
+    height: 50vh;
+    box-shadow: black 0 2px 5px;
+    border-radius: 10px;
+}
+
+.hover-info h1 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.hover-info h2 {
+    margin: 3px 0;
+    font-size: 16px;
+}
+
+.outerLayer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.outerLayer>div>img {
+    height: 20vh;
+    width: 20vh;
+}
+
+.indiaFlag {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.indiaFlag:hover {
+    box-shadow: black 0 2px 15px;
+}
+
+@media (min-height:750px) {
+    .map {
+        transform: scaleY(0.85);
+    }
+}
+
+@media (min-height:800px) {
+    .map {
+        transform: scaleY(0.9);
+    }
+}
+
+@media (min-height:850px) {
+    .map {
+        transform: scaleY(0.95);
+    }
+}
+
+@media (min-height:900px) {
+    .map {
+        transform: scaleY(1);
+    }
+}
+
+@media (min-height:950px) {
+    .map {
+        transform: scaleY(1.05);
+    }
+}
+
+@media (min-height:1000px) {
+    .map {
+        transform: scaleY(1.1);
+    }
+}
+
+@media (max-height:700px) {
+    .map {
+        transform: scale(0.7);
+        transform: scaleY(0.7);
+    }
+}
+
+@media (max-height:620px) {
+    .map {
+        transform: scale(0.6);
+        transform: scaleY(0.6);
+    }
+}
+
+@media (max-width:1480px) {
+    .hover-info {
+        width: 40%;
+    }
+}
+
+@media (max-width:1350px) {
+    .hover-info {
+        width: 35%;
+    }
+}
+
+@media (max-width:1250px) {
+    .hover-info {
+        width: 30%;
+    }
+}
