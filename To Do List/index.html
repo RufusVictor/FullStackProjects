@@ -15,7 +15,7 @@
     .container {
         max-width: 600px;
         margin: 0 auto;
-        padding: 40px;
+        padding: 40px 0px;
     }
 
     h1 {
@@ -30,11 +30,19 @@
         margin-bottom: 30px;
     }
 
+    select {
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+        width: 20%;
+    }
+
     input[type="text"] {
         border: none;
         border-radius: 5px;
         padding: 10px;
-        width: 70%;
+        width: 50%;
         margin-right: 10px;
     }
 
@@ -65,10 +73,16 @@
         border-radius: 5px;
         padding: 10px 20px;
         margin-bottom: 10px;
+        gap: 10px;
     }
 
     li span {
         flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    li small {
+        font-size: 0.8em;
         margin-right: 10px;
     }
 
@@ -87,8 +101,26 @@
     }
 
     li.completed {
-        background-color: green;
+        background-color: rgb(122, 205, 122);
         color: white;
+    }
+
+    li.editing span {
+        display: none;
+    }
+
+    li.editing input[type="text"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        width: 60%;
+    }
+
+    li.editing select {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        width: 20%;
     }
 </style>
 
@@ -96,6 +128,12 @@
     <div class="container">
         <h1>To Do List</h1>
         <form>
+            <select id="category-select">
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+            </select>
             <input type="text" id="todo-input" placeholder="Add a new task...">
             <button type="submit" id="add-button">Add</button>
         </form>
@@ -107,6 +145,7 @@
 <script>
     const form = document.querySelector('form');
     const todoInput = document.querySelector('#todo-input');
+    const categorySelect = document.querySelector('#category-select');
     const addButton = document.querySelector('#add-button');
     const todoList = document.querySelector('#todo-list');
 
@@ -114,11 +153,13 @@
 
     function addTodo() {
         const todoText = todoInput.value.trim();
+        const category = categorySelect.value;
 
         if (todoText.length > 0) {
             const todo = {
                 id: Date.now(),
                 text: todoText,
+                category: category,
                 completed: false
             };
 
@@ -157,29 +198,100 @@
         renderTodos();
     }
 
+    function editTodo(id) {
+        const todo = todos.find(todo => todo.id === id);
+
+        if (!todo) return;
+
+        const todoItem = document.querySelector(`li[data-id="${id}"]`);
+        const todoTextSpan = todoItem.querySelector('span');
+        const todoCategorySmall = todoItem.querySelector('small');
+
+        // Replace text and category with input fields
+        const editInput = document.createElement('input');
+        editInput.type = 'text';
+        editInput.value = todo.text;
+
+        const editCategory = document.createElement('select');
+        const categories = ['Work', 'Personal', 'Shopping', 'Other'];
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            option.selected = category === todo.category;
+            editCategory.appendChild(option);
+        });
+
+        // Replace buttons with "Save" and "Cancel"
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        const cancelButton = document.createElement('button');
+        cancelButton.textContent = 'Cancel';
+
+        // Clear the current content
+        todoItem.innerHTML = '';
+        todoItem.classList.add('editing');
+
+        // Append new elements
+        todoItem.appendChild(editInput);
+        todoItem.appendChild(editCategory);
+        todoItem.appendChild(saveButton);
+        todoItem.appendChild(cancelButton);
+
+        // Save changes
+        saveButton.addEventListener('click', () => {
+            const newText = editInput.value.trim();
+            const newCategory = editCategory.value;
+
+            if (newText.length > 0) {
+                todo.text = newText;
+                todo.category = newCategory;
+
+                // Save todos to localStorage
+                localStorage.setItem('todos', JSON.stringify(todos));
+
+                renderTodos();
+            }
+        });
+
+        // Cancel editing
+        cancelButton.addEventListener('click', () => {
+            renderTodos();
+        });
+    }
+
     function renderTodos() {
         todoList.innerHTML = '';
 
         todos.forEach(todo => {
             const todoItem = document.createElement('li');
+            todoItem.setAttribute('data-id', todo.id);
+
             const todoText = document.createElement('span');
+            const todoCategory = document.createElement('small');
             const completeButton = document.createElement('button');
+            const editButton = document.createElement('button');
             const deleteButton = document.createElement('button');
 
             todoText.textContent = todo.text;
+            todoCategory.textContent = `[${todo.category}]`;
             completeButton.textContent = 'Complete';
+            editButton.textContent = 'Edit';
             deleteButton.textContent = 'Delete';
 
             if (todo.completed) {
                 todoItem.classList.add('completed');
             }
 
+            todoItem.appendChild(todoCategory);
             todoItem.appendChild(todoText);
             todoItem.appendChild(completeButton);
-            todoItem.appendChild(document.createTextNode('\u00A0'));
+            todoItem.appendChild(editButton);
             todoItem.appendChild(deleteButton);
 
             completeButton.addEventListener('click', () => toggleCompleted(todo.id));
+            editButton.addEventListener('click', () => editTodo(todo.id));
             deleteButton.addEventListener('click', () => deleteTodo(todo.id));
 
             todoList.appendChild(todoItem);
@@ -200,6 +312,5 @@
         }
     });
 </script>
-
 
 </html>
